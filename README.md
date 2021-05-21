@@ -16,7 +16,6 @@
    * "got" is an easy-to-use and powerful HTTP request library for Node.js that will help download HTML from a webpage.
    
    ### npm i got 
-   <br>
    ### or yarn add got 
    ### // const got = require("got");
 
@@ -24,7 +23,8 @@
 
    * "cheerio" is a fast implementation of core jQuery designed specifically for the server that can help us parse HTML much easier.
 
-   ### npm i cheerio or yarn add cheerio 
+   ### npm i cheerio 
+   ### or yarn add cheerio 
    ### // const cheerio = require("cheerio");
    <br>
 
