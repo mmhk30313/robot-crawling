@@ -1,0 +1,11 @@
+.link{
+    position: relative;
+}
+.blur-unclick{
+    position: absolute;
+    height: fit-content;
+    width: 93%;
+    background: rgba(179, 128, 128, 0.658);
+    top: 0;
+    display: none;
+}
