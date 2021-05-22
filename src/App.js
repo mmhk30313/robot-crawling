@@ -8,11 +8,12 @@ function App() {
 
   const [links, setLinks] = useState([]);
   useEffect(()=>{
-    fetch(`https://robot-crawling-server.herokuapp.com/all-links?url=${url}`)
+    fetch(`https://crawling-robot-server.herokuapp.com/all-links?url=${url}`)
     .then( res => res.json())
     .then( data => {
       // console.log(data);
-      fetch('https://robot-crawling-server.herokuapp.com/',{
+      let mainRoot = data[0].href;
+      fetch('https://crawling-robot-server.herokuapp.com/',{
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json'}
@@ -20,10 +21,9 @@ function App() {
       .then( res => res.json())
       .then( allLinks => {
         console.log(allLinks);
-        let mainRout = allLinks[0].href;
         // console.log(mainRout);
         allLinks.map(link => {
-          // console.log(link)
+          console.log(link)
           if(link.href.includes("http")){
             // console.log(link)
             link["text"] = "Special " + link.text;
@@ -33,7 +33,7 @@ function App() {
             if(!link.href.includes("/")){
               link["href"] = "/"+link.href;
             }
-            link["href"] = mainRout+link.href;
+            link["href"] = mainRoot+link.href;
             link["href"] = link["href"].replace(" ", "");
           }
         })
